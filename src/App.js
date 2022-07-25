@@ -19,6 +19,7 @@ class App extends React.Component {
       cards: [],
       filterRare: '',
       filterName: '',
+      filterTrunfo: false,
     };
   }
 
@@ -120,9 +121,11 @@ class App extends React.Component {
       isSaveButtonDisabled,
       filterRare,
       filterName,
+      filterTrunfo,
     } = this.state;
 
     const cardsFiltered = cards
+      .filter((card) => (filterTrunfo ? card.hasTrunfo === true : card))
       .filter(({ name }) => name.includes(filterName))
       .filter(({ rare }) => (
         filterRare === 'todas' || !filterRare ? rare : rare === filterRare));
@@ -161,11 +164,19 @@ class App extends React.Component {
           name="filterName"
           data-testid="name-filter"
           onChange={ (e) => { this.filterCards(e); } }
+          disabled={ filterTrunfo }
+        />
+        <input
+          type="checkbox"
+          name="filterTrunfo"
+          data-testid="trunfo-filter"
+          onChange={ (e) => { this.filterCards(e); } }
         />
         <select
           name="filterRare"
           data-testid="rare-filter"
           onChange={ (e) => { this.filterCards(e); } }
+          disabled={ filterTrunfo }
         >
           <option value="todas" selected>Todas</option>
           <option value="normal">normal</option>

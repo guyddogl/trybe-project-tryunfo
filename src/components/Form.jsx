@@ -30,7 +30,7 @@ class Form extends React.Component {
         <input
           type="textarea"
           name="cardDescription"
-          id="descrcardDescriptioniption"
+          id="cardDescription"
           value={ cardDescription }
           onChange={ onInputChange }
           data-testid="description-input"
