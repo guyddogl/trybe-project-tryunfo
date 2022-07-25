@@ -53,6 +53,14 @@ class App extends React.Component {
     });
   }
 
+  deleteCard = (e) => {
+    const { cards } = this.state;
+    const { hasTrunfo } = cards.find((card) => card.name);
+    const filterCard = cards.filter((card) => card.name !== e.target.id);
+    this.setState({ cards: filterCard });
+    if (hasTrunfo) this.setState({ hasTrunfo: false });
+  }
+
   onSaveButtonClick = (e) => {
     e.preventDefault();
     const {
@@ -145,7 +153,16 @@ class App extends React.Component {
                 cardImage={ card.image }
                 cardRare={ card.rare }
                 cardTrunfo={ card.hasTrunfo }
+                deleteCard={ this.deleteCard }
               />
+              <button
+                id={ card.name }
+                type="button"
+                data-testid="delete-button"
+                onClick={ this.deleteCard }
+              >
+                Excluir
+              </button>
             </div>
           ))
         }
