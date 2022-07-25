@@ -17,6 +17,7 @@ class App extends React.Component {
       hasTrunfo: false,
       isSaveButtonDisabled: true,
       cards: [],
+      filterRare: '',
       filterName: '',
     };
   }
@@ -99,7 +100,8 @@ class App extends React.Component {
   }
 
   filterCards = ({ target }) => {
-    const { name, value } = target;
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({ [name]: value });
   };
 
@@ -116,11 +118,14 @@ class App extends React.Component {
       hasTrunfo,
       cards,
       isSaveButtonDisabled,
+      filterRare,
       filterName,
     } = this.state;
 
     const cardsFiltered = cards
-      .filter(({ name }) => name.includes(filterName));
+      .filter(({ name }) => name.includes(filterName))
+      .filter(({ rare }) => (
+        filterRare === 'todas' || !filterRare ? rare : rare === filterRare));
 
     return (
       <div>
@@ -157,6 +162,16 @@ class App extends React.Component {
           data-testid="name-filter"
           onChange={ (e) => { this.filterCards(e); } }
         />
+        <select
+          name="filterRare"
+          data-testid="rare-filter"
+          onChange={ (e) => { this.filterCards(e); } }
+        >
+          <option value="todas" selected>Todas</option>
+          <option value="normal">normal</option>
+          <option value="raro">raro</option>
+          <option value="muito raro">muito raro</option>
+        </select>
         {
           cardsFiltered.map((card, index) => (
             <div key={ index }>
