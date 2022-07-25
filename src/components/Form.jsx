@@ -15,9 +15,10 @@ class Form extends React.Component {
       // hasTrunfo,
       onInputChange,
       isSaveButtonDisabled,
+      onSaveButtonClick,
     } = this.props;
     return (
-      <form>
+      <form onSubmit={ onSaveButtonClick }>
         <input
           type="text"
           name="cardName"
@@ -29,7 +30,7 @@ class Form extends React.Component {
         <input
           type="textarea"
           name="cardDescription"
-          id="descrcardDescriptioniption"
+          id="cardDescription"
           value={ cardDescription }
           onChange={ onInputChange }
           data-testid="description-input"
@@ -109,6 +110,7 @@ Form.propTypes = {
   // hasTrunfo: PropTypes.bool.isRequired,
   isSaveButtonDisabled: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
+  onSaveButtonClick: PropTypes.func.isRequired,
 };
 
 export default Form;
