@@ -100,6 +100,7 @@ class App extends React.Component {
       cardRare,
       cardTrunfo,
       hasTrunfo,
+      cards,
       isSaveButtonDisabled,
     } = this.state;
     return (
@@ -130,6 +131,24 @@ class App extends React.Component {
           cardTrunfo={ cardTrunfo }
           onInputChange={ this.onInputChange }
         />
+        <div>Todas as cartas:</div>
+        {
+          cards.map((card, index) => (
+            <div key={ index }>
+              <Card
+                key={ card.name }
+                cardName={ card.name }
+                cardDescription={ card.descripton }
+                cardAttr1={ card.attr1 }
+                cardAttr2={ card.attr2 }
+                cardAttr3={ card.attr3 }
+                cardImage={ card.image }
+                cardRare={ card.rare }
+                cardTrunfo={ card.hasTrunfo }
+              />
+            </div>
+          ))
+        }
       </div>
     );
   }
