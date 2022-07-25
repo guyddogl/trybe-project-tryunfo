@@ -90,9 +90,9 @@ class App extends React.Component {
       cards: [...prevState.cards, newCard],
       cardName: '',
       cardDescription: '',
-      cardAttr1: 0,
-      cardAttr2: 0,
-      cardAttr3: 0,
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
       cardImage: '',
       cardRare: '',
       cardTrunfo: false,
@@ -177,8 +177,9 @@ class App extends React.Component {
           data-testid="rare-filter"
           onChange={ (e) => { this.filterCards(e); } }
           disabled={ filterTrunfo }
+          defaultValue="todas"
         >
-          <option value="todas" selected>Todas</option>
+          <option value="todas">Todas</option>
           <option value="normal">normal</option>
           <option value="raro">raro</option>
           <option value="muito raro">muito raro</option>
