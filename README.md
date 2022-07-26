@@ -21,4 +21,4 @@ Funcionalidades implementadas:
 ![JavaScript](https://img.shields.io/badge/-JavaScript-1b374b?style=for-the-badge&logo=javascript)&nbsp;
 <hr/>
 
-<img src="https://raw.githubusercontent.com/guyddogl/trybe-project-solar-system/main/src/images/solar-system-preview.png" alt="Imagem Preview" />
+<img src="https://github.com/guyddogl/trybe-project-tryunfo/blob/main/public/tryunfo-preview.jpg" alt="Imagem Preview" />
