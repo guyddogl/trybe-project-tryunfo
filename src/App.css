@@ -1,0 +1,58 @@
+.input-attr {
+  width: 70px;
+}
+
+.input-100 {
+  width: 100%;
+}
+
+.bg-gray,
+body {
+  background-color: #fafafa;
+}
+
+.card {
+  box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+  width: 19rem;
+}
+
+.bg-normal {
+  background-color: #a3a3a3;
+  color: white;
+}
+
+.bg-dark {
+  color: white;
+}
+
+.bg-white {
+  background-color: white;
+  min-height: 1030px;
+}
+
+.bg-true {
+  background-color: #2fc18c;
+  color: white;
+}
+
+.bg-muito-raro {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.bg-raro {
+  background-color: #ffc107;
+  color: black;
+}
+
+.attr {
+  background-color: #fafafa;
+  border-radius: 5px;
+  color: black;
+  font-weight: 500;
+  padding: 2px 5px;
+}
+
+.card-img-top {
+  max-height: 170px;
+}

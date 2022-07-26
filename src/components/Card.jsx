@@ -13,17 +13,50 @@ class Card extends React.Component {
       cardRare,
       cardTrunfo,
     } = this.props;
+    const cssClass = cardTrunfo || cardRare.replaceAll(' ', '-');
     return (
-      <div>
-        <p data-testid="name-card">{ cardName }</p>
-        <img data-testid="image-card" src={ cardImage } alt={ cardName } />
-        <p data-testid="description-card">{ cardDescription }</p>
-        <p data-testid="attr1-card">{ cardAttr1 }</p>
-        <p data-testid="attr2-card">{ cardAttr2 }</p>
-        <p data-testid="attr3-card">{ cardAttr3 }</p>
-        <p data-testid="rare-card">{ cardRare }</p>
-        { cardTrunfo && <p data-testid="trunfo-card">Super Trunfo</p> }
-      </div>
+      <center>
+        <div className="col mb-2">
+          <div className={ `card mt-2 bg-${cssClass}` }>
+            <img
+              data-testid="image-card"
+              src={ cardImage }
+              alt={ cardName }
+              className="card-img-top"
+            />
+            <div className="card-body">
+              <h6
+                data-testid="name-card"
+                className="card-title text-center"
+              >
+                { cardName }
+              </h6>
+              <span
+                className="card-text"
+                data-testid="description-card"
+              >
+                { cardDescription }
+              </span>
+              <p className="card-text attr mt-2" data-testid="attr1-card">
+                { `Attack .............................................. ${cardAttr1}` }
+              </p>
+              <p className="card-text attr" data-testid="attr2-card">
+                { `Defense ........................................... ${cardAttr2}` }
+              </p>
+              <p className="card-text attr" data-testid="attr3-card">
+                { `HP .................................................... ${cardAttr3}` }
+              </p>
+              <p
+                className="card-text text-center bg-dark rounded-2"
+                data-testid="rare-card"
+              >
+                { cardRare }
+                { cardTrunfo && <span data-testid="trunfo-card"> (Super Trunfo)</span> }
+              </p>
+            </div>
+          </div>
+        </div>
+      </center>
     );
   }
 }
