@@ -1,7 +1,6 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
-// import Title from './components/Title';
 import './App.css';
 
 class App extends React.Component {
@@ -25,27 +24,18 @@ class App extends React.Component {
     };
   }
 
-  validateTextInputs = () => {
-    const { cardName, cardDescription, cardImage } = this.state;
-    const validateName = cardName.length === 0;
-    const validateDescription = cardDescription.length === 0;
-    const validateImage = cardImage.length === 0;
-    const validateInputs = validateName || validateDescription || validateImage;
-    return validateInputs;
+  validateTextInputs = ({ cardName, cardDescription, cardImage } = this.state) => {
+    const arrayInputs = [cardName, cardDescription, cardImage];
+    return arrayInputs.some((input) => input.length === 0);
   }
 
-  validateAttributes = () => {
+  validateAttributes = ({ cardAttr1, cardAttr2, cardAttr3 } = this.state) => {
+    const arrayAttr = [Number(cardAttr1), Number(cardAttr2), Number(cardAttr3)];
     const maxAttribute = 90;
-    const minAttribute = 0;
+    const isInvalid = arrayAttr.some((attr) => attr < 0 || attr > maxAttribute);
     const maxTotalAttribute = 210;
-    const { cardAttr1, cardAttr2, cardAttr3 } = this.state;
-    const attr1 = cardAttr1 < minAttribute || cardAttr1 > maxAttribute;
-    const attr2 = cardAttr2 < minAttribute || cardAttr2 > maxAttribute;
-    const attr3 = cardAttr3 < minAttribute || cardAttr3 > maxAttribute;
-    const sumAttributes = Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3);
-    const totalAttributes = sumAttributes > maxTotalAttribute;
-    const validateAttributes = attr1 || attr2 || attr3 || totalAttributes;
-    return validateAttributes;
+    const sumAttributes = arrayAttr.reduce((acc, curr) => acc + curr) > maxTotalAttribute;
+    return isInvalid || sumAttributes;
   }
 
   validateForm = () => this.validateTextInputs() || this.validateAttributes();
@@ -143,7 +133,6 @@ class App extends React.Component {
               />
               <strong>Tryunfo</strong>
             </h1>
-            {/* <Title icon="fa-solid fa-file-circle-plus" text="Add new card" /> */}
             <center>
               <Form
                 cardName={ cardName }
@@ -160,7 +149,6 @@ class App extends React.Component {
                 onSaveButtonClick={ this.onSaveButtonClick }
               />
             </center>
-            {/* <Title icon="fa-solid fa-file-image" text="Preview" /> */}
             <Card
               cardName={ cardName }
               cardDescription={ cardDescription }
@@ -174,7 +162,6 @@ class App extends React.Component {
             />
           </div>
           <div className="col-11 col-md-8 bg-gray">
-            {/* <p className="form-label mt-3">&nbsp; Filter by name:</p> */}
             <input
               type="text"
               name="filterName"
@@ -184,7 +171,6 @@ class App extends React.Component {
               onChange={ (e) => { this.filterCards(e); } }
               disabled={ filterTrunfo }
             />
-            {/* <p className="form-label mt-2">&nbsp; Filter by rarity:</p> */}
             <select
               name="filterRare"
               data-testid="rare-filter"
