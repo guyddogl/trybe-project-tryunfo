@@ -3,15 +3,12 @@
 Links: <a href="https://guyddogl.github.io/trybe-project-tryunfo/">Preview</a>
 <hr/>
 
-Este projeto simula um jogo de cartas.
+Projeto desenvolvido em React seguindo os conceitos de Single Page Application (SPA).
 
-Funcionalidades implementadas:
-- Adicionar/Remover cartas.
-- Só é possível salvar a carta se os campos do formulário estiverem preenchidos.
-- Só é possível salvar uma única carta Super Trunfo.
-- Ao preencher o formulário uma pré-visualização da carta é exibida.
-- Os atributos da carta não podem ser menor que 0 ou maior que 90, e a soma de todos os atributos não pode ser maior que 210.
-- Possibilidade de filtrar as cartas por nome, raridade ou super trunfo.
+Funcionalidades principais:
+- Pesquisar por álbuns
+- Adicionar/Remover músicas favoritas
+- Criar usuário e editar suas informações
 
 ### Tecnologias principais
 ![HTML](https://img.shields.io/badge/-HTML-1b374b?style=for-the-badge&logo=HTML5)&nbsp;
@@ -20,5 +17,7 @@ Funcionalidades implementadas:
 ![React](https://img.shields.io/badge/-React-1b374b?style=for-the-badge&logo=React)&nbsp;
 ![JavaScript](https://img.shields.io/badge/-JavaScript-1b374b?style=for-the-badge&logo=javascript)&nbsp;
 <hr/>
+
+https://user-images.githubusercontent.com/47524908/182866890-6b04132c-54cf-4423-9268-846e8be47de2.mp4
 
 <img src="https://github.com/guyddogl/trybe-project-tryunfo/blob/main/public/tryunfo-preview.jpg" alt="Imagem Preview" />
